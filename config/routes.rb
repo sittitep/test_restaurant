@@ -6,5 +6,11 @@ Rails.application.routes.draw do
         get :dishes
       end
     end
+
+    resources :dishes, only: [] do
+      member do
+        get :restaurants
+      end
+    end
   end
 end
