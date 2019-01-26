@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+10.times do |n|
+  Dish.create(name: "dish_#{n}")
+end
+
+5.times do |n|
+  Restaurant.create(name: "restaurant_#{n}")
+end
+
+dish_ids = Dish.ids
+Restaurant.find_each do |restaurant|
+  3.times do
+    restaurant.restaurant_dishes.create(dish_id: dish_ids.sample)
+  end
+end
